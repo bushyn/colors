@@ -18,23 +18,19 @@ let kits = {
 
 let Swatch = React.createClass({
     getInitialState() {
-         return {borderColor: 'white', txt: this.props.color, cls: 'txt'}
+         return { invColor: invertColor(this.props.color), cls: 'swatch',
+                  txt: this.props.color, hover: false }
     },
-    onMouseEnter() {
-        this.setState({borderColor: invertColor(this.props.color)})
-    },
-    onMouseLeave() {
-        this.setState({borderColor: 'white'})
-    },
+    toggle() { this.setState({hover: !this.state.hover}) },
     onClick() {
         window.getSelection().removeAllRanges()
         let range = document.createRange()
-        range.selectNodeContents(React.findDOMNode(this.refs.txt))
+        range.selectNode(React.findDOMNode(this.refs.txt))
         window.getSelection().addRange(range)
         try {
             if (document.execCommand('copy')) {
-                this.setState({txt: 'COPIED', cls: 'txt unselectable'})
-                setTimeout(()=>this.setState({txt: this.props.color, cls: 'txt'}), 500)
+                this.setState({txt: 'COPIED', cls: 'swatch unselectable'})
+                setTimeout(()=>this.setState({txt: this.props.color, cls: 'swatch'}), 700)
             } else {
                 console.log('unable to copy')
             }
@@ -44,27 +40,27 @@ let Swatch = React.createClass({
         window.getSelection().removeAllRanges()
     },
     render() {
-        return <div className='swatch'
-                    onMouseEnter={this.onMouseEnter}
-                    onMouseLeave={this.onMouseLeave}
-                    onClick={this.onClick} onDoubleClick={this.onClick}
-                    style={{borderColor: this.state.borderColor}}>
+        return <div className={this.state.cls}
+                    onMouseEnter={this.toggle}
+                    onMouseLeave={this.toggle}
+                    onClick={this.onClick}
+                    style={{borderColor: this.state.hover? this.state.invColor:'white'}}>
                 <div className="color" style={{backgroundColor: this.props.color}}></div>
-                <div ref='txt' className={this.state.cls}>{this.state.txt}</div>
+                <div ref='txt' className='txt'>{this.state.txt}</div>
         </div>
     }
 })
 
 let Kit = React.createClass({
     render() {
-        return <div className='kit'>
-            <div className='from'>{this.props.name}</div>
+        return <section className='kit'>
+            <h1 className='from'>{this.props.name}</h1>
             {this.props.list.map(v => <Swatch key={v} color={v}/>)}
-        </div>
+        </section>
     }
 })
 
-React.render(<div>{Object.keys(kits).map(v=><Kit key={v} name={v} list={kits[v]}/>)}</div>,  document.body)
+React.render(<article>{Object.keys(kits).map(v => <Kit key={v} name={v} list={kits[v]}/>)}</article>, document.body)
 
 function invertColor(hexTripletColor) {
     var color = hexTripletColor;

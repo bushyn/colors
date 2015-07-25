@@ -11,16 +11,17 @@ body {
 
 .from {
   font-size: 30px;
+  font-weight: normal;
   background: #EBE8DF;
   padding: 15px 0 20px;
-  margin: 0 0 20px;
+  margin: 0 0 15px;
 }
 
 .swatch {
-  padding: 10px 10px 5px;
+  padding: 15px 15px 0;
   display: inline-block;
   cursor: pointer;
-  border-width: 3px;
+  border-width: 2px;
   border-style: solid;
 }
 
@@ -37,7 +38,8 @@ body {
 }
 
 .txt {
-  margin-top: 4px;
+  margin: 7px 0 10px;
+  line-height: 1;
   font-size: 20px;
 }
 

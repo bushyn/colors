@@ -14,27 +14,25 @@ var Swatch = React.createClass({
     displayName: 'Swatch',
 
     getInitialState: function getInitialState() {
-        return { borderColor: 'white', txt: this.props.color, cls: 'txt' };
+        return { invColor: invertColor(this.props.color), cls: 'swatch',
+            txt: this.props.color, hover: false };
     },
-    onMouseEnter: function onMouseEnter() {
-        this.setState({ borderColor: invertColor(this.props.color) });
-    },
-    onMouseLeave: function onMouseLeave() {
-        this.setState({ borderColor: 'white' });
+    toggle: function toggle() {
+        this.setState({ hover: !this.state.hover });
     },
     onClick: function onClick() {
         var _this = this;
 
         window.getSelection().removeAllRanges();
         var range = document.createRange();
-        range.selectNodeContents(React.findDOMNode(this.refs.txt));
+        range.selectNode(React.findDOMNode(this.refs.txt));
         window.getSelection().addRange(range);
         try {
             if (document.execCommand('copy')) {
-                this.setState({ txt: 'COPIED', cls: 'txt unselectable' });
+                this.setState({ txt: 'COPIED', cls: 'swatch unselectable' });
                 setTimeout(function () {
-                    return _this.setState({ txt: _this.props.color, cls: 'txt' });
-                }, 500);
+                    return _this.setState({ txt: _this.props.color, cls: 'swatch' });
+                }, 700);
             } else {
                 console.log('unable to copy');
             }
@@ -46,15 +44,15 @@ var Swatch = React.createClass({
     render: function render() {
         return React.createElement(
             'div',
-            { className: 'swatch',
-                onMouseEnter: this.onMouseEnter,
-                onMouseLeave: this.onMouseLeave,
-                onClick: this.onClick, onDoubleClick: this.onClick,
-                style: { borderColor: this.state.borderColor } },
+            { className: this.state.cls,
+                onMouseEnter: this.toggle,
+                onMouseLeave: this.toggle,
+                onClick: this.onClick,
+                style: { borderColor: this.state.hover ? this.state.invColor : 'white' } },
             React.createElement('div', { className: "color", style: { backgroundColor: this.props.color } }),
             React.createElement(
                 'div',
-                { ref: 'txt', className: this.state.cls },
+                { ref: 'txt', className: 'txt' },
                 this.state.txt
             )
         );
@@ -66,10 +64,10 @@ var Kit = React.createClass({
 
     render: function render() {
         return React.createElement(
-            'div',
+            'section',
             { className: 'kit' },
             React.createElement(
-                'div',
+                'h1',
                 { className: 'from' },
                 this.props.name
             ),
@@ -81,7 +79,7 @@ var Kit = React.createClass({
 });
 
 React.render(React.createElement(
-    'div',
+    'article',
     null,
     Object.keys(kits).map(function (v) {
         return React.createElement(Kit, { key: v, name: v, list: kits[v] });
