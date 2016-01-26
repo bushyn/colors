@@ -2,7 +2,7 @@ document.addEventListener('click', e => {
   if (document.activeElement.tagName !== 'A') return
   getSelection().removeAllRanges()
   let range = document.createRange()
-  range.selectNode(document.activeElement)
+  range.selectNode(document.activeElement.lastElementChild)
   getSelection().addRange(range)
   document.execCommand('copy') && getSelection().removeAllRanges()
 })
