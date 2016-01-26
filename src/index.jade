@@ -1,0 +1,120 @@
+-
+  kits = {
+    'SQUARE UI': [
+      '#232323',
+      '#166549',
+      '#1b7e5a',
+      '#b95752',
+      '#e76e66',
+      '#695b8e',
+      '#544972',
+      '#704b62',
+      '#8c5e7a',
+      '#ebe8df',
+      '#fbfbfb',
+      '#bcd7dd',
+      '#9bc2cc',
+      '#79aeba',
+      '#579aa9',
+      '#457b87'
+    ],
+    'FLAT UI': [
+      '#1abc9c',
+      '#16a085',
+      '#2ecc71',
+      '#27ae60',
+      '#3498db',
+      '#0c8ac8',
+      '#2980b9',
+      '#9b59b6',
+      '#8e44ad',
+      '#34495e',
+      '#2c3e50',
+      '#f1c40f',
+      '#f39c12',
+      '#e67e22',
+      '#d35400',
+      '#e74c3c',
+      '#c0392b',
+      '#ecf0f1',
+      '#bdc3c7',
+      '#95a5a6',
+      '#7f8c8d'
+    ],
+    'BASE 16': [
+      '#181818',
+      '#282828',
+      '#383838',
+      '#585858',
+      '#b8b8b8',
+      '#d8d8d8',
+      '#e8e8e8',
+      '#f8f8f8',
+      '#ab4642',
+      '#dc9656',
+      '#f7ca88',
+      '#a1b56c',
+      '#86c1b9',
+      '#7cafc2',
+      '#ba8baf',
+      '#a16946'
+    ],
+    'TUMBLR PATTRN': [
+      '#2d4762',
+      '#3a98c8',
+      '#e98c29',
+      '#cf5530',
+      '#767dbd',
+      '#35bd7f',
+      '#7d8a96'
+    ],
+    'SOLARIZED': [
+      '#002b36',
+      '#073642',
+      '#586e75',
+      '#657b83',
+      '#839496',
+      '#93a1a1',
+      '#eee8d5',
+      '#fdf6e3',
+      '#b58900',
+      '#cb4b16',
+      '#dc322f',
+      '#d33682',
+      '#6c71c4',
+      '#268bd2',
+      '#2aa198',
+      '#859900'
+    ]
+  }
+
+  function inverse(color) {
+    color = color.slice(1)
+    color = parseInt(color, 16)
+    color ^= 0xFFFFFF
+    color = color.toString(16)
+    color = '000000' + color
+    color = color.slice(-6)
+    return '#' + color
+  }
+
+doctype html
+html
+  head
+    title colors
+    meta(name= 'viewport'
+         content= 'width=device-width, initial-scale=1')
+    style
+      include style.css
+  body
+    for list, name in kits
+      h1.title= name
+      for color in list
+        a.swatch(href= color style= 'color:' + inverse(color))
+          .color(style= 'background:' + color)
+          .name= color
+    script
+      include script.js
+
+
+

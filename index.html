@@ -1,13 +1,103 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>kʌləz</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
-  <body>
-    <script src="https://fb.me/react-0.13.3.min.js"></script>
-    <script src="script.js"></script>
-  </body>
-</html>
+<!DOCTYPE html><html><head><title>colors</title><meta name="viewport" content="width=device-width, initial-scale=1"><style>body {
+  margin: 0 0 5rem;
+  text-align: center;
+}
+
+.title {
+  margin: .5rem 0;
+  padding: 1rem 1rem 1.1rem;
+  font: normal 1.5rem/1 'Segoe UI', sans-serif;
+  color: #585858;
+  background: #EBE8DF;
+}
+
+.title:first-of-type {
+  margin-top: 0;
+}
+
+.swatch {
+  display: inline-block;
+  position: relative;
+  margin: .5rem;
+  padding: .5rem;
+  border: 1px solid white;
+  transition: border-color .7s cubic-bezier(0.23, 1, 0.32, 1);
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.swatch:hover,
+.swatch:focus,
+.swatch:active {
+  transition-duration: .2s;
+  border-color: currentColor;
+}
+
+.swatch::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: .5rem;
+  content: 'COPIED';
+  font: normal 1.1rem/1 'Segoe UI', sans-serif;
+  color: #585858;
+  background: white;
+  opacity: 0;
+  transition: opacity .2s cubic-bezier(0.23, 1, 0.32, 1) .8s;
+}
+
+.swatch:active::after {
+  transition-delay: -.8s;
+  opacity: 1;
+}
+
+.color {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  transition: transform .7s ease-out;
+  margin: 0 0 .6rem;
+}
+
+.color:active {
+  transition: transform .3s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: scale(0, 0);
+}
+
+.name {
+  font: normal 1.1rem/1 'Segoe UI', sans-serif;
+  color: #585858;
+  background: white;
+  text-transform: uppercase;
+}
+
+@media (min-width: 790px) {
+  html { font-size: 18px }
+  .swatch { border-width: 2px }
+}
+
+::selection {
+  background: #BCD7DD;
+  text-shadow: none;
+}
+</style></head><body><h1 class="title">SQUARE UI</h1><a href="#232323" style="color:#dcdcdc" class="swatch"><div style="background:#232323" class="color"></div><div class="name">#232323</div></a><a href="#166549" style="color:#e99ab6" class="swatch"><div style="background:#166549" class="color"></div><div class="name">#166549</div></a><a href="#1b7e5a" style="color:#e481a5" class="swatch"><div style="background:#1b7e5a" class="color"></div><div class="name">#1b7e5a</div></a><a href="#b95752" style="color:#46a8ad" class="swatch"><div style="background:#b95752" class="color"></div><div class="name">#b95752</div></a><a href="#e76e66" style="color:#189199" class="swatch"><div style="background:#e76e66" class="color"></div><div class="name">#e76e66</div></a><a href="#695b8e" style="color:#96a471" class="swatch"><div style="background:#695b8e" class="color"></div><div class="name">#695b8e</div></a><a href="#544972" style="color:#abb68d" class="swatch"><div style="background:#544972" class="color"></div><div class="name">#544972</div></a><a href="#704b62" style="color:#8fb49d" class="swatch"><div style="background:#704b62" class="color"></div><div class="name">#704b62</div></a><a href="#8c5e7a" style="color:#73a185" class="swatch"><div style="background:#8c5e7a" class="color"></div><div class="name">#8c5e7a</div></a><a href="#ebe8df" style="color:#141720" class="swatch"><div style="background:#ebe8df" class="color"></div><div class="name">#ebe8df</div></a><a href="#fbfbfb" style="color:#040404" class="swatch"><div style="background:#fbfbfb" class="color"></div><div class="name">#fbfbfb</div></a><a href="#bcd7dd" style="color:#432822" class="swatch"><div style="background:#bcd7dd" class="color"></div><div class="name">#bcd7dd</div></a><a href="#9bc2cc" style="color:#643d33" class="swatch"><div style="background:#9bc2cc" class="color"></div><div class="name">#9bc2cc</div></a><a href="#79aeba" style="color:#865145" class="swatch"><div style="background:#79aeba" class="color"></div><div class="name">#79aeba</div></a><a href="#579aa9" style="color:#a86556" class="swatch"><div style="background:#579aa9" class="color"></div><div class="name">#579aa9</div></a><a href="#457b87" style="color:#ba8478" class="swatch"><div style="background:#457b87" class="color"></div><div class="name">#457b87</div></a><h1 class="title">FLAT UI</h1><a href="#1abc9c" style="color:#e54363" class="swatch"><div style="background:#1abc9c" class="color"></div><div class="name">#1abc9c</div></a><a href="#16a085" style="color:#e95f7a" class="swatch"><div style="background:#16a085" class="color"></div><div class="name">#16a085</div></a><a href="#2ecc71" style="color:#d1338e" class="swatch"><div style="background:#2ecc71" class="color"></div><div class="name">#2ecc71</div></a><a href="#27ae60" style="color:#d8519f" class="swatch"><div style="background:#27ae60" class="color"></div><div class="name">#27ae60</div></a><a href="#3498db" style="color:#cb6724" class="swatch"><div style="background:#3498db" class="color"></div><div class="name">#3498db</div></a><a href="#0c8ac8" style="color:#f37537" class="swatch"><div style="background:#0c8ac8" class="color"></div><div class="name">#0c8ac8</div></a><a href="#2980b9" style="color:#d67f46" class="swatch"><div style="background:#2980b9" class="color"></div><div class="name">#2980b9</div></a><a href="#9b59b6" style="color:#64a649" class="swatch"><div style="background:#9b59b6" class="color"></div><div class="name">#9b59b6</div></a><a href="#8e44ad" style="color:#71bb52" class="swatch"><div style="background:#8e44ad" class="color"></div><div class="name">#8e44ad</div></a><a href="#34495e" style="color:#cbb6a1" class="swatch"><div style="background:#34495e" class="color"></div><div class="name">#34495e</div></a><a href="#2c3e50" style="color:#d3c1af" class="swatch"><div style="background:#2c3e50" class="color"></div><div class="name">#2c3e50</div></a><a href="#f1c40f" style="color:#0e3bf0" class="swatch"><div style="background:#f1c40f" class="color"></div><div class="name">#f1c40f</div></a><a href="#f39c12" style="color:#0c63ed" class="swatch"><div style="background:#f39c12" class="color"></div><div class="name">#f39c12</div></a><a href="#e67e22" style="color:#1981dd" class="swatch"><div style="background:#e67e22" class="color"></div><div class="name">#e67e22</div></a><a href="#d35400" style="color:#2cabff" class="swatch"><div style="background:#d35400" class="color"></div><div class="name">#d35400</div></a><a href="#e74c3c" style="color:#18b3c3" class="swatch"><div style="background:#e74c3c" class="color"></div><div class="name">#e74c3c</div></a><a href="#c0392b" style="color:#3fc6d4" class="swatch"><div style="background:#c0392b" class="color"></div><div class="name">#c0392b</div></a><a href="#ecf0f1" style="color:#130f0e" class="swatch"><div style="background:#ecf0f1" class="color"></div><div class="name">#ecf0f1</div></a><a href="#bdc3c7" style="color:#423c38" class="swatch"><div style="background:#bdc3c7" class="color"></div><div class="name">#bdc3c7</div></a><a href="#95a5a6" style="color:#6a5a59" class="swatch"><div style="background:#95a5a6" class="color"></div><div class="name">#95a5a6</div></a><a href="#7f8c8d" style="color:#807372" class="swatch"><div style="background:#7f8c8d" class="color"></div><div class="name">#7f8c8d</div></a><h1 class="title">BASE 16</h1><a href="#181818" style="color:#e7e7e7" class="swatch"><div style="background:#181818" class="color"></div><div class="name">#181818</div></a><a href="#282828" style="color:#d7d7d7" class="swatch"><div style="background:#282828" class="color"></div><div class="name">#282828</div></a><a href="#383838" style="color:#c7c7c7" class="swatch"><div style="background:#383838" class="color"></div><div class="name">#383838</div></a><a href="#585858" style="color:#a7a7a7" class="swatch"><div style="background:#585858" class="color"></div><div class="name">#585858</div></a><a href="#b8b8b8" style="color:#474747" class="swatch"><div style="background:#b8b8b8" class="color"></div><div class="name">#b8b8b8</div></a><a href="#d8d8d8" style="color:#272727" class="swatch"><div style="background:#d8d8d8" class="color"></div><div class="name">#d8d8d8</div></a><a href="#e8e8e8" style="color:#171717" class="swatch"><div style="background:#e8e8e8" class="color"></div><div class="name">#e8e8e8</div></a><a href="#f8f8f8" style="color:#070707" class="swatch"><div style="background:#f8f8f8" class="color"></div><div class="name">#f8f8f8</div></a><a href="#ab4642" style="color:#54b9bd" class="swatch"><div style="background:#ab4642" class="color"></div><div class="name">#ab4642</div></a><a href="#dc9656" style="color:#2369a9" class="swatch"><div style="background:#dc9656" class="color"></div><div class="name">#dc9656</div></a><a href="#f7ca88" style="color:#083577" class="swatch"><div style="background:#f7ca88" class="color"></div><div class="name">#f7ca88</div></a><a href="#a1b56c" style="color:#5e4a93" class="swatch"><div style="background:#a1b56c" class="color"></div><div class="name">#a1b56c</div></a><a href="#86c1b9" style="color:#793e46" class="swatch"><div style="background:#86c1b9" class="color"></div><div class="name">#86c1b9</div></a><a href="#7cafc2" style="color:#83503d" class="swatch"><div style="background:#7cafc2" class="color"></div><div class="name">#7cafc2</div></a><a href="#ba8baf" style="color:#457450" class="swatch"><div style="background:#ba8baf" class="color"></div><div class="name">#ba8baf</div></a><a href="#a16946" style="color:#5e96b9" class="swatch"><div style="background:#a16946" class="color"></div><div class="name">#a16946</div></a><h1 class="title">TUMBLR PATTRN</h1><a href="#2d4762" style="color:#d2b89d" class="swatch"><div style="background:#2d4762" class="color"></div><div class="name">#2d4762</div></a><a href="#3a98c8" style="color:#c56737" class="swatch"><div style="background:#3a98c8" class="color"></div><div class="name">#3a98c8</div></a><a href="#e98c29" style="color:#1673d6" class="swatch"><div style="background:#e98c29" class="color"></div><div class="name">#e98c29</div></a><a href="#cf5530" style="color:#30aacf" class="swatch"><div style="background:#cf5530" class="color"></div><div class="name">#cf5530</div></a><a href="#767dbd" style="color:#898242" class="swatch"><div style="background:#767dbd" class="color"></div><div class="name">#767dbd</div></a><a href="#35bd7f" style="color:#ca4280" class="swatch"><div style="background:#35bd7f" class="color"></div><div class="name">#35bd7f</div></a><a href="#7d8a96" style="color:#827569" class="swatch"><div style="background:#7d8a96" class="color"></div><div class="name">#7d8a96</div></a><h1 class="title">SOLARIZED</h1><a href="#002b36" style="color:#ffd4c9" class="swatch"><div style="background:#002b36" class="color"></div><div class="name">#002b36</div></a><a href="#073642" style="color:#f8c9bd" class="swatch"><div style="background:#073642" class="color"></div><div class="name">#073642</div></a><a href="#586e75" style="color:#a7918a" class="swatch"><div style="background:#586e75" class="color"></div><div class="name">#586e75</div></a><a href="#657b83" style="color:#9a847c" class="swatch"><div style="background:#657b83" class="color"></div><div class="name">#657b83</div></a><a href="#839496" style="color:#7c6b69" class="swatch"><div style="background:#839496" class="color"></div><div class="name">#839496</div></a><a href="#93a1a1" style="color:#6c5e5e" class="swatch"><div style="background:#93a1a1" class="color"></div><div class="name">#93a1a1</div></a><a href="#eee8d5" style="color:#11172a" class="swatch"><div style="background:#eee8d5" class="color"></div><div class="name">#eee8d5</div></a><a href="#fdf6e3" style="color:#02091c" class="swatch"><div style="background:#fdf6e3" class="color"></div><div class="name">#fdf6e3</div></a><a href="#b58900" style="color:#4a76ff" class="swatch"><div style="background:#b58900" class="color"></div><div class="name">#b58900</div></a><a href="#cb4b16" style="color:#34b4e9" class="swatch"><div style="background:#cb4b16" class="color"></div><div class="name">#cb4b16</div></a><a href="#dc322f" style="color:#23cdd0" class="swatch"><div style="background:#dc322f" class="color"></div><div class="name">#dc322f</div></a><a href="#d33682" style="color:#2cc97d" class="swatch"><div style="background:#d33682" class="color"></div><div class="name">#d33682</div></a><a href="#6c71c4" style="color:#938e3b" class="swatch"><div style="background:#6c71c4" class="color"></div><div class="name">#6c71c4</div></a><a href="#268bd2" style="color:#d9742d" class="swatch"><div style="background:#268bd2" class="color"></div><div class="name">#268bd2</div></a><a href="#2aa198" style="color:#d55e67" class="swatch"><div style="background:#2aa198" class="color"></div><div class="name">#2aa198</div></a><a href="#859900" style="color:#7a66ff" class="swatch"><div style="background:#859900" class="color"></div><div class="name">#859900</div></a><script>'use strict';
+
+document.addEventListener('click', function (e) {
+  if (document.activeElement.tagName !== 'A') return;
+  getSelection().removeAllRanges();
+  var range = document.createRange();
+  range.selectNode(document.activeElement);
+  getSelection().addRange(range);
+  document.execCommand('copy') && getSelection().removeAllRanges();
+});
+
+document.addEventListener('mousedown', function (_ref) {
+  var t = _ref.target;
+  var x = _ref.offsetX;
+  var y = _ref.offsetY;
+
+  if (t.tagName == 'DIV') t.style.transformOrigin = x + 'px ' + y + 'px';
+});
+</script></body></html>

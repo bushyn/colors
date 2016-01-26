@@ -1,0 +1,84 @@
+body {
+  margin: 0 0 5rem;
+  text-align: center;
+}
+
+.title {
+  margin: .5rem 0;
+  padding: 1rem 1rem 1.1rem;
+  font: normal 1.5rem/1 'Segoe UI', sans-serif;
+  color: #585858;
+  background: #EBE8DF;
+}
+
+.title:first-of-type {
+  margin-top: 0;
+}
+
+.swatch {
+  display: inline-block;
+  position: relative;
+  margin: .5rem;
+  padding: .5rem;
+  border: 1px solid white;
+  transition: border-color .7s cubic-bezier(0.23, 1, 0.32, 1);
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.swatch:hover,
+.swatch:focus,
+.swatch:active {
+  transition-duration: .2s;
+  border-color: currentColor;
+}
+
+.swatch::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: .5rem;
+  content: 'COPIED';
+  font: normal 1.1rem/1 'Segoe UI', sans-serif;
+  color: #585858;
+  background: white;
+  opacity: 0;
+  transition: opacity .2s cubic-bezier(0.23, 1, 0.32, 1) .8s;
+}
+
+.swatch:active::after {
+  transition-delay: -.8s;
+  opacity: 1;
+}
+
+.color {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  transition: transform .7s ease-out;
+  margin: 0 0 .6rem;
+}
+
+.color:active {
+  transition: transform .3s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: scale(0, 0);
+}
+
+.name {
+  font: normal 1.1rem/1 'Segoe UI', sans-serif;
+  color: #585858;
+  background: white;
+  text-transform: uppercase;
+}
+
+@media (min-width: 790px) {
+  html { font-size: 18px }
+  .swatch { border-width: 2px }
+}
+
+::selection {
+  background: #BCD7DD;
+  text-shadow: none;
+}
